@@ -1,3 +1,4 @@
+
 name: Build DeS Unified Weapons
 
 on:
@@ -11,8 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Extract plugin
-        run: unzip -q DeS-Unified-Weapons-MERGED-Download.zip
+      - name: Extract clean plugin source
+        run: unzip -q DeS-Unified-Weapons-MERGED-CLEAN.zip
 
       - uses: actions/setup-java@v4
         with:
@@ -31,3 +32,5 @@ jobs:
         with:
           name: DeS-Unified-Weapons-JAR
           path: DeS-Unified-Weapons/plugin/build/libs/*.jar
+          if-no-files-found: error
+          
